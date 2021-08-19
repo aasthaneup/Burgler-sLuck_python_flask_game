@@ -41,12 +41,11 @@ html, body{
     background-color: gold;
     color: rgb(10, 4, 4);
 }
-/* .goldnumber h3{
-    margin: 0px;
-    color: rgb(206, 154, 154);
-} */
 .goldnumber h5{
     margin-left: 10px;
+}
+.goldcounter h3{
+    display: inline;
 }
 .places{
     height: 220px;
@@ -55,8 +54,6 @@ html, body{
     width: 1100px;
     margin: auto;
     padding-top: 20px;
-    margin-top:100px;
-
 }
 .place{
     height: 200px;
@@ -113,7 +110,7 @@ html, body{
     font-size: large;
 }
 .act_word{
-    margin: 100px 25px 0px 25px;
+    margin: 50px 25px 10px 25px;
     color: gold;
 }
 .activities{
