@@ -21,38 +21,39 @@
                     <!-- <h5>{{totalgold}}</h5> -->
                     <h5>0 for now</h5>
                 </div>
+                <h3 class="p-5 mt-5 text-danger">Burglary attempts remaining: 10</h3>
             </div>
             <div class="places">
                 <div class="place elv">
                     <h4>Elves Hut</h4>
                     <p>(steal 2-5 golds)</p>
-                    <form>
-                            <input type="hidden" name = "clicked" value = "Elves Hut">
-                            <button class="butn btn">Find Gold!</button>
+                    <form action = "/steal" method = "POST">
+                            <input type="hidden" name = "clicked" value = "elves">
+                            <button class="butn btn">Steal Gold!</button>
                         </form>
                 </div>
                 <div class="place fair">
                     <h4>Fairies Den</h4>
                     <p>(steal 5-10 golds)</p>
-                    <form>
-                        <input type="hidden" name = "clicked" value = "Fairies Den">
-                        <button class="butn btn">Find Gold!</button>
+                    <form action = "/steal" method = "POST">
+                        <input type="hidden" name = "clicked" value = "fairies">
+                        <button class="butn btn">Steal Gold!</button>
                     </form>
                 </div>
                 <div class=" place lep">
                     <h4>Leprechaun Castle</h4>
                     <p>(steal 10-20 golds)</p>
-                    <form>
-                        <input type="hidden" name = "clicked" value = "Leprechaun castle">
-                        <button class="butn btn">Find Gold!</button>
+                    <form action = "/steal" method = "POST">
+                        <input type="hidden" name = "clicked" value = "leprechaun">
+                        <button class="butn btn">Steal Gold!</button>
                     </form>
                 </div>
                 <div class="place drag">
                     <h4>Dragon Lair</h4>
                     <p>(steal/pay 0-50 golds)</p>
-                    <form>
-                        <input type="hidden" name = "clicked" value = "Dragon Lair">
-                        <button class="butn btn">Find Gold!</button>
+                    <form action = "/steal" method = "POST">
+                        <input type="hidden" name = "clicked" value = "dragon">
+                        <button class="butn btn">Steal Gold!</button>
                     </form>
                 </div>
             </div>
