@@ -1,0 +1,17 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    background-image: url("img/gavel.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Uncial Antiqua', cursive;
+}
+.resultpg{
+    width: 100%;
+    height: 100%;
+    color:white;
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+    font-size: larger;
+    font-weight: bolder;
+}
