@@ -110,6 +110,7 @@ html, body{
 }
 .butn{
     background-color: antiquewhite;
+    font-size: large;
 }
 .act_word{
     margin: 100px 25px 0px 25px;
