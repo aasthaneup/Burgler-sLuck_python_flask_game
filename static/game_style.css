@@ -38,8 +38,8 @@ html, body{
     border: 2px solid rgb(63, 62, 62);
     border-radius: 3px;
     margin: 10px 30px;
-    background-color: rgb(81, 81, 77);
-    color: white;
+    background-color: gold;
+    color: rgb(10, 4, 4);
 }
 /* .goldnumber h3{
     margin: 0px;
