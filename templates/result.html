@@ -19,14 +19,21 @@
             <h3>Samuel Ganji is forever in your debt</h3>
         {% elif session['result'] == 'fail' %}
             <h1 class="text-danger" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Sorry Bilbo, You Lost</h1>
-            <p class="text-warning">You were only able to steal {{session['totalGold']}} gold coins</p>
+            {% if session['totalGold'] < 0 %}
+                <p class="text-warning">Bilbo is now {{-session['totalGold']}} gold pieces in debt: he needs to repay from where he stole</p>
+            {% elif session['totalGold'] > 0 %}
+                <p class="text-warning">Bilbo was only able to steal {{session['totalGold']}} gold coins</p>
+            {% else %}
+                <p class="text-warning">Poor Bilbo walked away with no gold at the end</p>
+            {% endif %}
             <h3>Samuel Ganji shall grow old and perish under captivity</h3>
             <h3>Unless...</h3>
-            <h3>You take one more chance at saving him!</h3>
+            <h3>You convince Bilbo to take one more chance at saving him!</h3>
         {% else %}
-            <h1 style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">uuhh huhh... Where you off to? The game is still on. Please return to the <a class = "text-warning" href="/game"> game page</a></h1>
+            <h1 >uuhh huhh... Where you off to? The game is still on. Please return to the <a class = "text-warning" href="/game"> Game page >>></a></h1>
         {% endif %}
-        <a href="/reset"><h2 class="mt-5 text-warning">Restart the game >>></h2></a>
+        <h2 class="mt-5"><a href="/reset" class="text-warning">Restart the game >>></a></h2>
+        <a href="/" class="text-warning mt-3">Back to base >>></a>
     </div>
 </body>
 </html>
