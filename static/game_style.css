@@ -121,12 +121,10 @@ html, body{
     margin: auto;
     background-image: url("img/paper.jpg");
     background-size: cover;
-    color: white;
-    padding: 5px 10px;
-    overflow: auto;
-    display: flex;
-    flex-direction: column-reverse;
+    color: black;
+    padding: 50px 10px;
+    text-align: center;
 }
 .activities p{
-    font-size: small;
+    font-size: 30px;
 }

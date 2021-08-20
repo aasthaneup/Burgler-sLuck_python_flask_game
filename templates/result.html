@@ -13,7 +13,14 @@
 </head>
 <body>
     <div class="resultpg">
-
+        {% if session['result'] == 'success' %}
+            <h1>Bilbo was successful</h1>
+        {% elif session['result'] == 'fail' %}
+            <h1>Bilbo failed</h1>
+        {% else %}
+            <h1>The game is still goin on. Please return to the game page.</h1>
+        {% endif %}
+        <a href="/reset"><h2 class="text-warning">Restart the game >>></h2></a>
     </div>
 </body>
 </html>
