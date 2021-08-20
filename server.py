@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, Markup
 import random
 app = Flask(__name__)
-# app secret key here
+# app.secret_key = 
 
 @app.route('/')
 def index():
@@ -29,38 +29,41 @@ def result():
 def steal_gold():
     # process here
     if request.form['clicked'] == 'elv':
-        stolenGold = random.randint(2,6)
-        print("went into the elv hut and stole this much gold coins")
-        print(stolenGold)
+        stolenGold = random.randint(2,5)
+        # print("went into the elv hut and stole this much gold coins")
+        # print(stolenGold)
         session['comment'] = "Bilbo went to the Elv's hut and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'fairy':
-        stolenGold = random.randint(5,11)
-        print("went into the fairy den and stole this much gold coins")
-        print(stolenGold)
+        stolenGold = random.randint(5,10)
+        # print("went into the fairy den and stole this much gold coins")
+        # print(stolenGold)
         session['comment'] = "Bilbo went to the Fairy's den and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'leprechaun':
-        stolenGold = random.randint(10,21)
-        print("went into the leprechaun castle and stole this much gold coins:")
-        print(stolenGold)
+        stolenGold = random.randint(10,20)
+        # print("went into the leprechaun castle and stole this much gold coins:")
+        # print(stolenGold)
         session['comment'] = "Bilbo went to the leprechaun's castle and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'dragon':
-        stolenGold = random.randint(-50,51)
+        stolenGold = random.randint(-50,50)
         if stolenGold >=0:
-            print("went into the dragon lair and stole this much gold coins:")
-            print(stolenGold)
+            # print("went into the dragon lair and stole this much gold coins:")
+            # print(stolenGold)
             session['comment'] = "Bilbo went to the Dragon's lair and stole "+str(stolenGold)+" gold coins! 💰💰💰"
         else:
-            print("went into the dragon got caught and had to cough up this much gold coins:")
-            print(stolenGold)
+            # print("went into the dragon got caught and had to cough up this much gold coins:")
+            # print(stolenGold)
             session['comment'] = "Bilbo went to the Dragon's lair, got caught and had to cough up "+str(-stolenGold)+" gold coins! 🐲 🐲 🐲"
-    # decrement counter
+    # decrease the counter
     newCounter = int(session['counter']) - 1
     session['counter'] = newCounter
     gold = stolenGold + int (session['totalGold'])
     session['totalGold'] = gold
-    print('Total gold with Bilbo:')
-    print(session['totalGold'])
-    session['comment'] = Markup(session['comment']+'<br>Bilbo now has a total of '+str(session['totalGold'])+' gold pieces')
+    # print('Total gold with Bilbo:')
+    # print(session['totalGold'])
+    if session['totalGold'] < 0:
+        session['comment'] = Markup(session['comment']+'<br>Bilbo now is '+str(session['totalGold'])+' gold pieces in debt')
+    else:
+        session['comment'] = Markup(session['comment']+'<br>Bilbo now has a total of '+str(session['totalGold'])+' gold pieces')
     # keep playing until either Bilbo steals 200 golds or until its below 10 attempts
     # if 200 golds collected within 10 attempts; result will show success message else show failure message
     if session['counter'] <1:
@@ -75,7 +78,6 @@ def steal_gold():
             session['result'] = 'success'
             return redirect("/result")
         else:
-            # session['result'] = 'na'
             return redirect("/game")
 
 @app.route('/reset')

@@ -12,15 +12,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="resultpg">
+    <div class="resultpg" style="font-family: 'Almendra', serif;">
         {% if session['result'] == 'success' %}
-            <h1>Bilbo was successful</h1>
+            <h1 class="text-success" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Congratulations Bilbo!</h1>
+            <h3>You were successfull in stealing 200 gold coins!</h3>
+            <h3>Samuel Ganji is forever in your debt</h3>
         {% elif session['result'] == 'fail' %}
-            <h1>Bilbo failed</h1>
+            <h1 class="text-danger" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Sorry Bilbo, You Lost</h1>
+            <p class="text-warning">You were only able to steal {{session['totalGold']}} gold coins</p>
+            <h3>Samuel Ganji shall grow old and perish under captivity</h3>
+            <h3>Unless...</h3>
+            <h3>You take one more chance at saving him!</h3>
         {% else %}
-            <h1>The game is still goin on. Please return to the game page.</h1>
+            <h1 style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">uuhh huhh... Where you off to? The game is still on. Please return to the <a class = "text-warning" href="/game"> game page</a></h1>
         {% endif %}
-        <a href="/reset"><h2 class="text-warning">Restart the game >>></h2></a>
+        <a href="/reset"><h2 class="mt-5 text-warning">Restart the game >>></h2></a>
     </div>
 </body>
 </html>
