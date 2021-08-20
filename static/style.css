@@ -6,7 +6,7 @@ html, body{
     background-repeat: no-repeat;
     font-family: 'Uncial Antiqua', cursive;
 }
-.homepg, .gamepg, .resultpg{
+.homepg{
     width: 100%;
     height: 100%;
     color:white;
@@ -14,6 +14,9 @@ html, body{
     background-color: rgba(0,0,0,0.4);
     font-size: larger;
     font-weight: bolder;
+}
+.hid{
+    display: none;
 }
 .homepg h1{
     padding: 70px 0px;

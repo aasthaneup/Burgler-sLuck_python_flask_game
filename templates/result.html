@@ -10,30 +10,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.hid').slideDown(1000).removeClass('hid');
+        });
+    </script>
 </head>
 <body>
     <div class="resultpg" style="font-family: 'Almendra', serif;">
-        {% if session['result'] == 'success' %}
-            <h1 class="text-success" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Congratulations Bilbo!</h1>
-            <h3>You were successfull in stealing 200 gold coins!</h3>
-            <h3>Samuel Ganji is forever in your debt</h3>
-        {% elif session['result'] == 'fail' %}
-            <h1 class="text-danger" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Sorry Bilbo, You Lost</h1>
-            {% if session['totalGold'] < 0 %}
-                <p class="text-warning">Bilbo is now {{-session['totalGold']}} gold pieces in debt: he needs to repay from where he stole</p>
-            {% elif session['totalGold'] > 0 %}
-                <p class="text-warning">Bilbo was only able to steal {{session['totalGold']}} gold coins</p>
+        <div class="hid">
+            {% if session['result'] == 'success' %}
+                <h1 class="text-success" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Congratulations Bilbo!</h1>
+                <h3>You were successfull in stealing 200 gold coins!</h3>
+                <h3>Samuel Ganji is forever in your debt</h3>
+            {% elif session['result'] == 'fail' %}
+                <h1 class="text-danger" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Sorry Bilbo, You Lost</h1>
+                {% if session['totalGold'] < 0 %}
+                    <p class="text-warning">Bilbo is now {{-session['totalGold']}} gold pieces in debt: he needs to repay from where he stole</p>
+                {% elif session['totalGold'] > 0 %}
+                    <p class="text-warning">Bilbo was only able to steal {{session['totalGold']}} gold coins</p>
+                {% else %}
+                    <p class="text-warning">Poor Bilbo walked away with no gold at the end</p>
+                {% endif %}
+                <h3>Samuel Ganji shall grow old and perish under captivity</h3>
+                <h3>Unless...</h3>
+                <h3>You convince Bilbo to take one more chance at saving him!</h3>
             {% else %}
-                <p class="text-warning">Poor Bilbo walked away with no gold at the end</p>
+                <h1 >uuhh huhh... Where you off to? The game is still on. Please return to the <a class = "text-warning" href="/game"> Game page >>></a></h1>
             {% endif %}
-            <h3>Samuel Ganji shall grow old and perish under captivity</h3>
-            <h3>Unless...</h3>
-            <h3>You convince Bilbo to take one more chance at saving him!</h3>
-        {% else %}
-            <h1 >uuhh huhh... Where you off to? The game is still on. Please return to the <a class = "text-warning" href="/game"> Game page >>></a></h1>
-        {% endif %}
-        <h2 class="mt-5"><a href="/reset" class="text-warning">Restart the game >>></a></h2>
-        <a href="/" class="text-warning mt-3">Back to home base >>></a>
+            <h2 class="mt-5"><a href="/reset" class="text-warning">Restart the game >>></a></h2>
+            <a href="/" class="text-warning mt-3">Back to home base >>></a>
+        </div>
     </div>
 </body>
 </html>

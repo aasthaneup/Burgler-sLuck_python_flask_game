@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.hid').fadeIn(1000).removeClass('hid');
+        });
+    </script>
 </head>
 <body>
     <div class="gamepg" style="font-family: 'Almendra', serif;">
@@ -58,7 +64,7 @@
             </div>
             <h3 class="act_word">How does Bilbo fair:</h3>
             <div class="activities">
-                <p>{{session['comment']}}</p>
+                <p class="hid">{{session['comment']}}</p>
             </div>
             <a href="/reset" class="btn btn-warning float-right mt-4 mr-1">Restart</a>
         </div>

@@ -16,3 +16,6 @@ html, body{
     font-weight: bolder;
     padding-top: 15%;
 }
+.hid{
+    display: none;
+}

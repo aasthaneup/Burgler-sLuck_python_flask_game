@@ -15,6 +15,9 @@ html, body{
     font-size: larger;
     font-weight: bolder;
 }
+.hid{
+    display: none;
+}
 .gameboard{
     width: 1250px !important;
     min-height: 800px;
