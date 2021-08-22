@@ -3,10 +3,12 @@ import random
 app = Flask(__name__)
 # app.secret_key = ""
 
+# base route for home page
 @app.route('/')
 def index():
     return render_template("index.html")
 
+# route for game board
 @app.route('/game')
 def game():
     # create attempts counter in session if its a new game
@@ -15,19 +17,22 @@ def game():
     # create gold amount in session if its a new game
     if 'totalGold' not in session:
         session ['totalGold'] = 0
+    # create result in session if its a new game
     if 'result' not in session:
         session['result'] = 'na'
+    # create comment in session if its a new game
     if 'comment' not in session:
         session['comment'] = 'Lets get Bilbo started!!'
     return render_template("board.html", totalGold = session['totalGold'], counter = session['counter'])
 
+# route for result page
 @app.route('/result')
 def result():
     return render_template("result.html")
 
+# route for processing the stolen gold amount
 @app.route('/steal', methods = ['POST'])
 def steal_gold():
-    # process here
     if request.form['clicked'] == 'elv':
         stolenGold = random.randint(2,5)
         # print("went into the elv hut and stole this much gold coins")
@@ -53,7 +58,7 @@ def steal_gold():
             # print("went into the dragon got caught and had to cough up this much gold coins:")
             # print(stolenGold)
             session['comment'] = "Bilbo went to the Dragon's lair, got caught and had to cough up "+str(-stolenGold)+" gold coins! 🐲 🐲 🐲"
-    # decrease the counter
+    # decrease the counter after each stealing attempt
     newCounter = int(session['counter']) - 1
     session['counter'] = newCounter
     gold = stolenGold + int (session['totalGold'])
@@ -80,6 +85,7 @@ def steal_gold():
         else:
             return redirect("/game")
 
+# route for restarting the game
 @app.route('/reset')
 def reset():
     session.clear()
@@ -87,7 +93,6 @@ def reset():
     # session.pop('counter')
     # session.pop('totalGold')
     return redirect('/game')
-
 
 if __name__=="__main__":
     app.run(debug = True)
