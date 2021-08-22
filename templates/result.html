@@ -20,10 +20,12 @@
 <body>
     <div class="resultpg" style="font-family: 'Almendra', serif;">
         <div class="hid">
+            <!-- showing success message if Bilbo successfully stole 200 gold pieces within 10 attempts -->
             {% if session['result'] == 'success' %}
                 <h1 class="text-success" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Congratulations Bilbo!</h1>
                 <h3>You were successfull in stealing 200 gold coins!</h3>
                 <h3>Samuel Ganji is forever in your debt</h3>
+            <!-- showing failure message if Bilbo failed to steal 200 gold pieces within 10 attempts -->
             {% elif session['result'] == 'fail' %}
                 <h1 class="text-danger" style="font-family: 'Uncial Antiqua', cursive; font-weight:900;">Sorry Bilbo, You Lost</h1>
                 {% if session['totalGold'] < 0 %}
