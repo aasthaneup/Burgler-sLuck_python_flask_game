@@ -35,8 +35,6 @@ def result():
 def steal_gold():
     if request.form['clicked'] == 'elv':
         stolenGold = random.randint(2,5)
-        # print("went into the elv hut and stole this much gold coins")
-        # print(stolenGold)
         session['comment'] = "Bilbo went to the Elv's hut and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'fairy':
         stolenGold = random.randint(5,10)
@@ -45,18 +43,12 @@ def steal_gold():
         session['comment'] = "Bilbo went to the Fairy's den and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'leprechaun':
         stolenGold = random.randint(10,20)
-        # print("went into the leprechaun castle and stole this much gold coins:")
-        # print(stolenGold)
         session['comment'] = "Bilbo went to the leprechaun's castle and stole "+str(stolenGold)+" gold coins! 💰💰💰"
     if request.form['clicked'] == 'dragon':
         stolenGold = random.randint(-50,50)
         if stolenGold >=0:
-            # print("went into the dragon lair and stole this much gold coins:")
-            # print(stolenGold)
             session['comment'] = "Bilbo went to the Dragon's lair and stole "+str(stolenGold)+" gold coins! 💰💰💰"
         else:
-            # print("went into the dragon got caught and had to cough up this much gold coins:")
-            # print(stolenGold)
             session['comment'] = "Bilbo went to the Dragon's lair, got caught and had to cough up "+str(-stolenGold)+" gold coins! 🐲 🐲 🐲"
     # decrease the counter after each stealing attempt
     newCounter = int(session['counter']) - 1
