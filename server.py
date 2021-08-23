@@ -55,8 +55,7 @@ def steal_gold():
     session['counter'] = newCounter
     gold = stolenGold + int (session['totalGold'])
     session['totalGold'] = gold
-    # print('Total gold with Bilbo:')
-    # print(session['totalGold'])
+    # add to comment
     if session['totalGold'] < 0:
         session['comment'] = Markup(session['comment']+'<br>Bilbo now is '+str(session['totalGold'])+' gold pieces in debt')
     else:
